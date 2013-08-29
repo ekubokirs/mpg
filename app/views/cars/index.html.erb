@@ -1,0 +1,23 @@
+<%= flash.notice %>
+<table>	
+	<thead>
+		<tr>
+			<td>Make</td>
+			<td>Model</td>
+			<td>Year</td>
+			<td>Edit</td>
+			<td>Delete</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @cars.each do |c| %>
+			<tr>
+				<td><%= c.make %></td>
+				<td><%= c.brand %></td>
+				<td><%= c.year %>
+				<td><%= link_to "Edit", edit_car_url(c.id) %>
+				<td><%= link_to "Delete", c, method: :delete %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

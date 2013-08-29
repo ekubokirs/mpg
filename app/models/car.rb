@@ -1,5 +1,3 @@
-class Car <ActiveRecord::Base
-	validates :make, presence: true
-	validates :model, presence: true
-	validates :year, presence: true
+class Car < ActiveRecord::Base
+	has_many :tanks
 end

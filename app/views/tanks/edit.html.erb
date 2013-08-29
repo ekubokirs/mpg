@@ -1,0 +1,9 @@
+<%= form_for @tanks, url: tanks_url(@tanks) do |f| %>
+	<%= f.label :amount %>
+	<%= f.text_field :amount %>
+	<%= f.label :price %>
+	<%= f.text_field :price %>
+	<%= f.label :current_miles %>
+	<%= f.text_field :current_miles %>
+	<!-- add checkboxes for driving conditions here -->
+<% end %>

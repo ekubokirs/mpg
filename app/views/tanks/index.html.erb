@@ -1,0 +1,22 @@
+<table>	
+	<thead>
+		<tr>
+			<td>Amount</td>
+			<td>Price</td>
+			<td>Date</td>
+			<td>Edit</td>
+			<td>Delete</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @tanks.each do |t| %>
+			<tr>
+				<td><%= t.amount %></td>
+				<td><%= t.price %></td>
+				<td><%= t.updated_at %>
+				<td><%= link_to "Edit", edit_tank_url(t.id) %>
+				<td><%= link_to "Delete", t, method: :delete %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
