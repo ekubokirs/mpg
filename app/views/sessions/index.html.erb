@@ -12,8 +12,6 @@
 	<section class="top-bar-section">
 		<ul class="right">
 			<li class="divider"></li>
-			<li><%= link_to "Home", root_url %>
-			<li class="divider"></li>
 			<li><%= link_to "Add New Tank", new_tank_url %></li>
 			<li class="divider"></li>
 			<li><%= link_to "Add New Car", new_car_url %></li>
@@ -24,19 +22,3 @@
 		</ul>
 	</section>
 </nav>
-<div class="mp_back">
-	<%= form_for @car, url: car_path(@car) do |f| %>
-		<%= f.label :make %>
-		<%= f.text_field :make %>
-		<%= f.label :brand, "Model" %>
-		<%= f.text_field :brand %>
-		<%= f.label :year %>
-		<%= f.text_field :year %>
-		<%= f.label :color %>
-		<%= f.text_field :color %>
-		<%= f.label :current_miles, "Current Milage" %>
-		<%= f.text_field :current_miles %>
-		<%= f.submit "Submit", :class= => "tiny button" %>
-		<%= link_to "Cancel", root_url, :class => "tiny button" %>
-	<% end %>
-</div>

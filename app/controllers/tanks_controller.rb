@@ -20,15 +20,25 @@ class TanksController < ApplicationController
 	end
 
 	def show
+		@tank = Tank.find(params[:id])
 	end
 
 	def edit
+		@tank = Tank.find(params[:id])
 	end
 
 	def update
+		@tank = Tank.find(params[:id])
+		@car.update_attributes(tank_params)
+		redirect_to root_url
+		flash[:notice] = "Tank Details Updated"
 	end
 
 	def destroy
+		tank = Tank.find(params[:id])
+		tank.destroy
+		redirect_to tank_path
+		flash[:notice] = "Tank Deleted"
 	end
 
 	private
