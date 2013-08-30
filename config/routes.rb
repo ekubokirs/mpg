@@ -4,13 +4,13 @@ Mpg::Application.routes.draw do
   resources :users
 
   # Registration
-  get  'passwords/:code' => "password#new", as: :register
-  post 'passwords/:code' => "password#create"
+  get  'passwords/:code' => "passwords#new", as: :register
+  post 'passwords/:code' => "passwords#create"
   
   # Password reset
-  get   'reset/:code' => "password#edit", as: :reset
-  put   'reset/:code' => "password#update"
-  patch 'reset/:code' => "password#update"
+  get   'passwords/:code' => "passwords#edit", as: :reset
+  put   'passwords/:code' => "passwords#update"
+  patch 'passwords/:code' => "passwords#update"
   
   # Login
   get    'login' => "sessions#new", as: :login

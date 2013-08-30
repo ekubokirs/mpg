@@ -41,13 +41,13 @@ class PasswordsController < ApplicationController
 			)
 	end
 	def clear_expired_registrants
-		Registrant.destroy_all(:expires_at.lt => Time.now)
+		Registrant.where('expires_at < ?', Time.now).destroy_all
 	end
 
 	def get_registrant
 		@registrant = Registrant.find_by_code params[:code]
 		unless @registrant
-			Registrant.where(:expires_at.lt => Time.now)
+			Registrant.where('expires_at < ?', Time.now).destroy_all
 			redirect_to login_url
 			flash[:alert] = "Registration Link Expired"
 		end

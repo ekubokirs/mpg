@@ -1,5 +1,5 @@
 class SessionsController <ApplicationController
-	# add authentication
+	before_action :is_authenticated, only: [ :index ]
 	def index
 	end
 

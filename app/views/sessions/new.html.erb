@@ -1,3 +1,34 @@
 <div class="mp_back">
- login page
+ <%= flash.notice %>
+ <div class="row">
+ 	<div class="small-12 columns">
+ 		<%= form_tag login_path do %>
+			<div class="ma_signin hide-text">
+				To sign up, please enter your email and a new user email will be sent to you.
+			</div>
+			<div class="ma_reset">
+				To reset your password, please enter your email and leave the password field blank.  A reset email will be sent to you.
+			</div>
+			<%= label_tag :email, "E-mail", :class => "ma_label" %>
+			<%= text_field_tag :email %>
+			<div class="row">
+				<div class="small-6 columns">
+					<%= label_tag :password, "Password", :id => "passwordLabel", :class => "ma_label" %>
+					<%= password_field_tag :password, nil, :id => "inputPassword" %>
+				</div>
+				<div class="small-6 columns mp_pass">
+					<button id="toggle-password-field" id="showPassword" class ="tiny button alert">Show Password</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="small-6 columns">
+					<%= submit_tag "Submit", :class => "tiny button" %>
+				</div>
+				<div class="small-6 columns">
+					<%= button_tag "Register", :id => "newReg", :class => "tiny button" %>
+				</div>
+			</div>
+		<% end %>
+ 	</div>
+ </div>
 </div>

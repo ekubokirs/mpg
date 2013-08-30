@@ -1,5 +1,5 @@
 class TanksController < ApplicationController
-	
+	before_action :is_authenticated
 	def index
 		@tanks = Tank.all
 	end

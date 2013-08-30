@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+	before_action :is_authenticated
 	def index
 		@cars = Car.all
 	end

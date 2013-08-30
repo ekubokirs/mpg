@@ -1,0 +1,21 @@
+<p>
+	Thank you for your interest in Track Yo' Gas!
+</p>
+<p> 
+	To complete your registration, please follow the link below:
+</p>
+<p>
+	<%= link_to register_url(@registrant.code), register_url(@registrant.code) %>
+</p>
+<p>
+	This link will expire at <%= @registrant.expires_at %>.
+</p>
+<p>
+	If you received this message in error, simply do nothing.
+</p>
+<p>
+	Thanks!
+</p>
+<p>
+	-Emilia
+</p>
