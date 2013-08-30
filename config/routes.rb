@@ -2,7 +2,6 @@ Mpg::Application.routes.draw do
   resources :cars
   resources :tanks
   resources :users
-  resources	:passwords
 
   # Registration
   get  'passwords/:code' => "password#new", as: :register

@@ -13,21 +13,16 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Track Yo' Gas" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
-    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="knockout-2.2.1.js"></script>
-    <script type="text/javascript" src="globalize.js"></script>
-    <script type="text/javascript" src="dx.chartjs.js"></script>
   </head>
 
   <body>
 
     <%= yield %>
-
     
     <%= javascript_include_tag "application" %>
   </body>
