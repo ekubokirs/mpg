@@ -1,1 +1,26 @@
-set passwords
+<div class="mp_back">
+	<h2>Welcome <%= @registrant.email %>!<h2>
+	<%= form_for @user, url: {action: "create"} do |f| %>
+		<div class="row">
+			<p class="small-6 columns">
+				<%= f.label :first_name %>
+				<%= f.text_field :first_name %>
+			</p>
+			<p class="small-6 columns">
+				<%= f.label :last_name %>
+				<%= f.text_field :last_name %>
+			</p>
+		</div>
+		<div class="row">
+			<p class="small-6 columns">
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+				<%= f.label :password_confirmation %>
+				<%= f.password_field :password_confirmation %>
+			</p>
+		</div>
+		<div class="row">
+			<%= f.submit "Save", :class => "tiny button mp_submit" %>
+		</div>
+	<% end %>
+</div>

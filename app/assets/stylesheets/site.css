@@ -8,3 +8,11 @@
 .mp_pass{
 	margin-top: 7%;
 }
+.mp_submit{
+	-webkit-appearance: none;
+	-moz-appearance:  none;
+	border-radius: 0;
+}
+.mp_side{
+	border: solid 1px #4d4219
+}

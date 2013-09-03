@@ -1,6 +1,19 @@
 class SessionsController <ApplicationController
 	before_action :is_authenticated, only: [ :index ]
 	def index
+		@tanks = Tank.all
+		@cars = Car.all
+		def stats
+			 
+		end
+
+		def download
+			@data = Hash.new
+			@tanks.each do |t|
+				@data = {"MPG" => t.mgp, "Date" => t.created_at}
+			end
+			render json: @mpg
+		end
 	end
 
 	def new
@@ -23,7 +36,7 @@ class SessionsController <ApplicationController
 	        flash[:alert] = "Password Reset E-mail Sent!"
 	      else
 	        if @user.authenticate(params[:password])
-	          session[:user_id] = @user._id
+	          session[:user_id] = @user.id
 	          redirect_to root_url
 	        else
 	          redirect_to login_url

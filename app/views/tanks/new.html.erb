@@ -26,14 +26,14 @@
 </nav>
 <div class="mp_back">
 	<%= form_for @tanks, url: {action: "create"} do |f| %>
-		<%= f.label :amount %>
+		<%= f.label :amount, "Amount in Gallons" %>
 		<%= f.text_field :amount %>
-		<%= f.label :price %>
+		<%= f.label :price, "Price Per Gallon" %>
 		<%= f.text_field :price %>
-		<%= f.label :current_miles, "Current Milage" %>
+		<%= f.label :current_miles, "Miles on This Tank" %>
 		<%= f.text_field :current_miles %>
 		<!-- add checkboxes for driving conditions here -->
-		<%= f.submit "Submit", :class => "tiny button" %>
+		<%= f.submit "Submit", :class => "tiny button mp_submit" %>
 		<%= link_to "Cancel", tanks_url, :class => "tiny button" %>
 	<% end %>
 </div>

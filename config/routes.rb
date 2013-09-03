@@ -2,15 +2,16 @@ Mpg::Application.routes.draw do
   resources :cars
   resources :tanks
   resources :users
+  resources :reset
 
   # Registration
   get  'passwords/:code' => "passwords#new", as: :register
   post 'passwords/:code' => "passwords#create"
   
   # Password reset
-  get   'passwords/:code' => "passwords#edit", as: :reset
-  put   'passwords/:code' => "passwords#update"
-  patch 'passwords/:code' => "passwords#update"
+  # get   'reset/:code' => "reset#edit", as: :reset
+  # put   'reset/:code' => "reset#update"
+  # patch 'reset/:code' => "reset#update"
   
   # Login
   get    'login' => "sessions#new", as: :login
