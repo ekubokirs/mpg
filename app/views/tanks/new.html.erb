@@ -26,6 +26,8 @@
 </nav>
 <div class="mp_back">
 	<%= form_for @tanks, url: {action: "create"} do |f| %>
+		<%#= f.label :car %>
+		<%#= f.select :car, options_from_collection_for_select(@cars, "id", "name")%>
 		<%= f.label :amount, "Amount in Gallons" %>
 		<%= f.text_field :amount %>
 		<%= f.label :price, "Price Per Gallon" %>

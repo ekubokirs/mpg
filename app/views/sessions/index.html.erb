@@ -31,34 +31,17 @@
 		</ul>
 		<div id="graph"></div>
 		<script type="text/javascript" id="sidebar">
-			jQuery(document).ready(function ($) {
+			jQuery(document).ready(function () {
     // Write AJAX GET request for each line class on-click
-    $("body").on("click", '.car', function(){
-      // Empty #chart div first
-      $("#graph").empty();
-      // console.log($(this).attr("car-id"));
-      // console.log(color);
-      // Get data
-      $.ajax({
-        method: "GET",
-        url: "/car/" + $(this).attr("car-id") + "/stats",
-        contentType: 'application/json',
-        dataType: 'json',
-        success: function(data) {
-          data = data;
-          // d3Chart method fills chart
-          d3Chart(data);
-        }
-      }); // End AJAX call
-    }); // End on-click
-  });
+	    	$("body").on("click", '.car', function(){
+	      // Empty #chart div first
+		      $("#graph").empty();
+    		}); // End on-click
+  		});
 		</script>
 		<script type="text/javascript" id="graph">
-			var data = [{year: 2006, mpg: 54},
-			            {year: 2007, mpg: 43},
-			            {year: 2008, mpg: 41},
-			            {year: 2009, mpg: 44},
-			            {year: 2010, mpg: 35}];
+			var data = <%= @data.to_json.html_safe %>;
+			console.log(data);
 
 			var barWidth = 40;
 			var width = (barWidth + 10) * data.length;
@@ -67,6 +50,8 @@
 			var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
 			var y = d3.scale.linear().domain([0, d3.max(data, function(datum) { return datum.mpg; })]).
 			  rangeRound([0, height]);
+      console.log(x);
+      console.log(y);
 
 			// add the canvas to the DOM
 			var graph = d3.select("#graph").

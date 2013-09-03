@@ -19,10 +19,6 @@ class TanksController < ApplicationController
 		end
 	end
 
-	def show
-		@tank = Tank.find(params[:id])
-	end
-
 	def edit
 		@tank = Tank.find(params[:id])
 	end
@@ -37,7 +33,7 @@ class TanksController < ApplicationController
 	def destroy
 		tank = Tank.find(params[:id])
 		tank.destroy
-		redirect_to tank_path
+		redirect_to tanks_path
 		flash[:notice] = "Tank Deleted"
 	end
 

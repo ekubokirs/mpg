@@ -25,7 +25,6 @@
 	</section>
 </nav>
 <div class="mp_back">
-	<%= flash.notice %>
 	<%= form_for @car, url: {action: "create"} do |f| %>
 		<%= f.label :make %>
 		<%= f.text_field :make %>

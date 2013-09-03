@@ -28,8 +28,9 @@
 	<table>	
 		<thead>
 			<tr>
-				<td>Amount</td>
-				<td>Price</td>
+				<td>Number of Gallons</td>
+				<td>Price Per Gallon</td>
+				<td>Miles on Tank</td>
 				<td>Date</td>
 				<td>Edit</td>
 				<td>Delete</td>
@@ -40,7 +41,8 @@
 				<tr>
 					<td><%= t.amount %></td>
 					<td><%= t.price %></td>
-					<td><%= t.updated_at %>
+					<td><%= t.current_miles %></td>
+					<td><%= t.created_at %>
 					<td><%= link_to "Edit", edit_tank_url(t.id) %>
 					<td><%= link_to "Delete", t, method: :delete %>
 				</tr>

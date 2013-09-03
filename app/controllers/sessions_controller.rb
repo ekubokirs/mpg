@@ -3,17 +3,12 @@ class SessionsController <ApplicationController
 	def index
 		@tanks = Tank.all
 		@cars = Car.all
-		def stats
-			 
+		@data = Array.new
+		@tanks.each do |t|
+			@data << {mpg: t.mpg, date: t.created_at}
 		end
-
-		def download
-			@data = Hash.new
-			@tanks.each do |t|
-				@data = {"MPG" => t.mgp, "Date" => t.created_at}
-			end
-			render json: @mpg
-		end
+		puts "*"*50
+		puts @data
 	end
 
 	def new
