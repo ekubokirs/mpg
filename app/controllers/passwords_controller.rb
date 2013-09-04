@@ -19,7 +19,7 @@ class PasswordsController < ApplicationController
     if @user.save
       @registrant.destroy
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "Welcome to ParDIY!"
+      redirect_to root_url, notice: "Welcome to Track Yo' Gas!"
     else
       # Else, rerender the form
       render :new

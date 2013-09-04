@@ -23,12 +23,16 @@
 	</section>
 </nav>
 <div class="mp_back">
+	<div class="row mp_alert">
+		<%= flash.notice %>
+	</div>
 	<div class="row">
-		<ul class="side-nav small-1 columns mp_side">
-			<% @cars.each do |c| %>
-				<li class="car" id="<%= c.name %>" car-id="<%= c.id %>"><a href="#"><%= c.name %></a></li>
-			<% end %>
-		</ul>
+		<dl class="sub-nav">
+      <dt>Cars:</dt>
+        <% @cars.each do |car| %>
+          <dd class="car" id="<%= car.name %>"><a href="#"><%= car.name %></a></dd>
+        <% end %>
+    </dl>
 		<div id="graph"></div>
 		<script type="text/javascript" id="sidebar">
 			jQuery(document).ready(function () {
@@ -40,18 +44,17 @@
   		});
 		</script>
 		<script type="text/javascript" id="graph">
-			var data = <%= @data.to_json.html_safe %>;
+			var mpg = <%= @data.to_json.html_safe %>;
+			
 			console.log(data);
 
-			var barWidth = 40;
+			var barWidth = 20;
 			var width = (barWidth + 10) * data.length;
 			var height = 200;
 
 			var x = d3.scale.linear().domain([0, data.length]).range([0, width]);
 			var y = d3.scale.linear().domain([0, d3.max(data, function(datum) { return datum.mpg; })]).
 			  rangeRound([0, height]);
-      console.log(x);
-      console.log(y);
 
 			// add the canvas to the DOM
 			var graph = d3.select("#graph").
@@ -79,7 +82,8 @@
 			  attr("dy", "1.2em").
 			  attr("text-anchor", "middle").
 			  text(function(datum) { return datum.mpg;}).
-			  attr("fill", "white");
+			  attr("fill", "white").
+        attr("transform", "rotate(-90)");
 
 			graph.selectAll("text.yAxis").
 			  data(data).
@@ -98,23 +102,17 @@
 		<table>	
 			<thead>
 				<tr>
-					<td>Amount</td>
-					<td>Miles</td>
+          <td>Date Filled</td>
 					<td>MPG</td>
-					<td>Price</td>
-					<td>Date</td>
 				</tr>
 			</thead>
 			<tbody>
-				<% @tanks.each do |t| %>
+				<%# @tanks.each do |t| %>
 					<tr>
-						<td><%= t.amount %></td>
-						<td><%= t.current_miles %></td>
-						<td><%= t.mpg %></td>
-						<td><%= t.price %></td>
-						<td><%= t.updated_at %>
+						<td><%#= t.created_at %></td>
+						<td><%#= t.mpg %></td>
 					</tr>
-				<% end %>
+				<%# end %>
 			</tbody>
 		</table>
 	</div>

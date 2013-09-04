@@ -1,8 +1,6 @@
 $(function(){
-
 	// defines function for newUser button
 	$('#newReg').on('click',function(evt){
-		
 		// when password field is hidden execute this
 		if($(this).hasClass("passwordHidden")){
 			// shows the password field, button, and label
@@ -15,8 +13,7 @@ $(function(){
 			// changes text on the button
 			$(this).html('Register')
 			// removes class
-			$(this).removeClass("passwordHidden");
-			
+			$(this).removeClass("passwordHidden");	
 		}
 		// when the password field is there
 		else{
@@ -36,30 +33,22 @@ $(function(){
 	});
 	// adds the click function to event
 	$('#toggle-password-field').on('click', function(evt){
-		
 		// defines color and text depending on current state of button
 		if ($(this).hasClass('alert')){
 			$(this).html('Hide Password');
-
 			$(this).removeClass('alert');
 			$(this).addClass('success');
-
 			// shows password text
 			$('#inputPassword').attr('type','text')
 		}
-
 		else{
-
 			$(this).html('Show Password');
-
  			// makes button red instead of green
 			$(this).removeClass('success');
 			$(this).addClass('alert');
-
 			// hides password text
 			$('#inputPassword').attr('type','password')
 		}
-	
 		return false;
 	});
 })

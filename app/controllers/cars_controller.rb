@@ -10,6 +10,7 @@ class CarsController < ApplicationController
 
 	def create
 		@car = Car.new(car_params)
+		@car.user = current_user
 		if @car.save
 			redirect_to cars_url
 			flash[:notice] = "Car Created!"
@@ -37,7 +38,7 @@ class CarsController < ApplicationController
 	def destroy
 		car = Car.find(params[:id])
 		car.destroy
-		redirect_to car_path
+		redirect_to cars_path
 		flash[:notice] = "Car Deleted"
 	end
 

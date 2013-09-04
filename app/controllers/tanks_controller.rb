@@ -6,12 +6,13 @@ class TanksController < ApplicationController
 
 	def new
 		@tanks  = Tank.new
+		@cars = Car.all
 	end
 
 	def create
 		@tank = Tank.new(tank_params)
 		if @tank.save
-			redirect_to tanks_url
+			redirect_to root_url
 			flash[:notice] = "Tank Created!"
 		else
 			flash[:notice] = "Error"
@@ -33,13 +34,14 @@ class TanksController < ApplicationController
 	def destroy
 		tank = Tank.find(params[:id])
 		tank.destroy
-		redirect_to tanks_path
+		redirect_to root_url
 		flash[:notice] = "Tank Deleted"
 	end
 
 	private
 	def tank_params
 		params.require(:tank).permit(
+			:car_id,
 			:amount,
 			:price,
 			:current_miles

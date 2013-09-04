@@ -1,14 +1,15 @@
 class SessionsController <ApplicationController
 	before_action :is_authenticated, only: [ :index ]
 	def index
-		@tanks = Tank.all
-		@cars = Car.all
 		@data = Array.new
-		@tanks.each do |t|
-			@data << {mpg: t.mpg, date: t.created_at}
+		@tanks = current_user.cars.map(&:tanks)
+		@cars = current_user.cars
+		@cars.each_with_index do |c, i|
+			@data[i] = Array.new
+			c.tanks.each do |t|
+				@data[i] << {mpg: t.mpg, date: t.created_at}
+			end
 		end
-		puts "*"*50
-		puts @data
 	end
 
 	def new
