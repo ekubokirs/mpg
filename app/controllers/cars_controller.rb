@@ -22,6 +22,9 @@ class CarsController < ApplicationController
 
 	def show
 		@car = Car.find(params[:id])
+		@tanks = @car.tanks.all
+		puts "*"*50
+		puts @tanks
 	end
 
 	def edit

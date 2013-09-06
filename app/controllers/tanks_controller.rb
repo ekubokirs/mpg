@@ -20,6 +20,10 @@ class TanksController < ApplicationController
 		end
 	end
 
+	def show
+		@tank=Tank.find(params[:id])
+	end
+
 	def edit
 		@tank = Tank.find(params[:id])
 	end

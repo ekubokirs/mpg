@@ -1,0 +1,64 @@
+<nav class="top-bar">
+	<ul class="title-area">
+		<li class="name">
+			<h1><%#= @user.full_name %></h1>
+		</li>
+		<li class="toggle-topbar menu-icon">
+			<a href="#">
+				<span>Menu</span>
+			</a>
+		</li>
+	</ul>
+	<section class="top-bar-section">
+		<ul class="right">
+			<li class="divider"></li>
+			<li><%= link_to "Home", root_url %>
+			<li class="divider"></li>
+			<li><%= link_to "Add New Tank", new_tank_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "Add New Car", new_car_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "See All Cars", car_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "Log Out", logout_url %></li>				
+		</ul>
+	</section>
+</nav>
+<div class="mp_back">
+	<div class="row">
+		<div class="small-6 colums">
+			<p>Car Name: <%= @car.name %></p>
+			<p>Color: <%= @car.color %></p>
+		</div>
+		<div class="small-6 colums">
+			<p>Year: <%= @car.year %></p>
+			<p>Starting Miles: <%= @car.current_miles %></p>
+		</div>
+	</div>
+	<div class="row">
+		<table>
+		<thead>
+			<tr>
+				<td>Date Filled</td>
+				<td>Price Per Gallon</td>
+				<td>Number of Gallons</td>
+				<td>Miles on Tank</td>
+				<td>MPG</td>
+				<td>Price Per Gallon</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @tanks.each do |t| %>
+				<tr>
+					<td><%= t.created_at %></td>
+					<td><%= t.price %></td>
+					<td><%= t.amount %></td>
+					<td><%= t.current_miles %></td>
+					<td><%= t.mpg %></td>
+					<td><%= t.ppm %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
+</div>

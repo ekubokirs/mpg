@@ -3,6 +3,8 @@ Mpg::Application.routes.draw do
   resources :tanks
   resources :users
 
+  get'cars/:id/stats' => "sessions#stats"
+
   # Registration
   get  'passwords/:code' => "passwords#new", as: :register
   post 'passwords/:code' => "passwords#create"

@@ -2,7 +2,7 @@
 	To reset your password, please follow the link below:
 </p>
 <p>
-	<%= link_to edit_reset_url(@user.code), edit_reset_url(@user.code) %>
+	<%= link_to reset_url(@user.code), reset_url(@user.code) %>
 </p>
 <p>
 	This link will expire at <%= @user.expires_at %>.

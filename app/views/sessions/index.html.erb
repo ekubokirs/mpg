@@ -27,25 +27,43 @@
 		<%= flash.notice %>
 	</div>
 	<div class="row">
-		<dl class="sub-nav">
+		<dl class="sub-nav" id="sidebar">
       <dt>Cars:</dt>
         <% @cars.each do |car| %>
-          <dd class="car" id="<%= car.name %>"><a href="#"><%= car.name %></a></dd>
+          <dd><a data-id="<%= car.id %>" class="mp_link" href="#"><%= car.name %></a></dd>
         <% end %>
     </dl>
 		<div id="graph"></div>
 		<script type="text/javascript" id="sidebar">
 			jQuery(document).ready(function () {
     // Write AJAX GET request for each line class on-click
-	    	$("body").on("click", '.car', function(){
+	    	$("body").on("click", ".mp_link", function(){
+	    		console.log(this);
+	    		console.log($(this).data("id"));
 	      // Empty #chart div first
 		      $("#graph").empty();
+		      console.log("test");
+			    $.ajax({
+		        method: "GET",
+		        url: "/cars/" + $(this).data("id") + "/stats",
+		        contentType: 'application/json',
+		        dataType: 'json',
+		        success: function(data) {
+		          // d3Chart method fills chart
+		          D3data(data);
+		          console.log("ajax");
+	        	},
+	        	// error: function(xhr, status, error){
+	        	// 	var err = eval("("+xhr.responseText+")");
+	        	// 	console.log(err.Message);
+	        	// }
+		      }); // End AJAX call
     		}); // End on-click
   		});
 		</script>
 		<script type="text/javascript" id="graph">
-			var mpg = <%= @data.to_json.html_safe %>;
-			
+			var D3data = function(data){
+
 			console.log(data);
 
 			var barWidth = 20;
@@ -72,48 +90,31 @@
 			  attr("width", barWidth).
 			  attr("fill", "#225a22");
 
-			 graph.selectAll("text").
-			  data(data).
-			  enter().
-			  append("svg:text").
-			  attr("x", function(datum, index) { return x(index) + barWidth; }).
-			  attr("y", function(datum) { return height - y(datum.mpg); }).
-			  attr("dx", -barWidth/2).
-			  attr("dy", "1.2em").
-			  attr("text-anchor", "middle").
-			  text(function(datum) { return datum.mpg;}).
-			  attr("fill", "white").
-        attr("transform", "rotate(-90)");
+			//  graph.selectAll("text").
+			//   data(data).
+			//   enter().
+			//   append("svg:text").
+			//   attr("x", function(datum, index) { return x(index) + barWidth; }).
+			//   attr("y", function(datum) { return height - y(datum.mpg); }).
+			//   attr("dx", -barWidth/2).
+			//   attr("dy", "1.2em").
+			//   attr("text-anchor", "middle").
+			//   text(function(datum) { return datum.mpg;}).
+			//   attr("fill", "white").
+   //      attr("transform", "rotate(-90)");
 
-			graph.selectAll("text.yAxis").
-			  data(data).
-			  enter().append("svg:text").
-			  attr("x", function(datum, index) { return x(index) + barWidth; }).
-			  attr("y", height).
-			  attr("dx", -barWidth/2).
-			  attr("text-anchor", "middle").
-			  attr("style", "font-size: 12; font-family: Helvetica, sans-serif").
-			  text(function(datum) { return datum.year;}).
-			  attr("transform", "translate(0, 18)").
-			  attr("class", "yAxis");
+			// graph.selectAll("text.yAxis").
+			//   data(data).
+			//   enter().append("svg:text").
+			//   attr("x", function(datum, index) { return x(index) + barWidth; }).
+			//   attr("y", height).
+			//   attr("dx", -barWidth/2).
+			//   attr("text-anchor", "middle").
+			//   attr("style", "font-size: 12; font-family: Helvetica, sans-serif").
+			//   text(function(datum) { return datum.year;}).
+			//   attr("transform", "translate(0, 18)").
+			//   attr("class", "yAxis");
+			}
 		</script>
-	</div>
-	<div class="row">
-		<table>	
-			<thead>
-				<tr>
-          <td>Date Filled</td>
-					<td>MPG</td>
-				</tr>
-			</thead>
-			<tbody>
-				<%# @tanks.each do |t| %>
-					<tr>
-						<td><%#= t.created_at %></td>
-						<td><%#= t.mpg %></td>
-					</tr>
-				<%# end %>
-			</tbody>
-		</table>
 	</div>
 </div>
