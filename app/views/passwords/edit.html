@@ -1,9 +1,9 @@
 <div class="mp_back">	
 	<h2>
-		Welcome <%= @user.email %>!
+		Welcome <%#= @user.email %>!
 	</h2>
 	<div class="row">
-		<%= form_for @user, url: reset_path, method: :put, html: { autocomplete: :off } do |f| %>
+		<%= form_for :user, url: reset_path, method: :put, html: { autocomplete: :off } do |f| %>
 			<div class="large-6 columns">
 		    <p>
 			    <%= f.label :password %>
@@ -15,7 +15,9 @@
 			  </p>
 			</div>
 			<div class="row">
-				<%= f.submit "Save Password", :class => "button" %>
+          <input id="hidden-strength" type="hidden" name="strength" value="0">
+          <%= f.hidden_field :code %>
+          <%= f.submit "Save Password", id: "save-password", :class => "button" %>
 			</div>
 		<% end %>
 	</div>

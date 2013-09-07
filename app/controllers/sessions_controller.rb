@@ -4,19 +4,6 @@ class SessionsController <ApplicationController
 		@cars = current_user.cars
 	end
 
-	def stats
-		@cars = current_user.cars
-		@mpg = Array.new
-		@cars.find(params[:id]).tanks.each do |tank|
-			@mpg << {mpg: tank.mpg, date: tank.created_at}
-		end
-		puts "*"*50
-		puts @mpg
-		# respond_to do |format|
-		# 	format.json{render :json => @mpg, :status => :ok}
-		# end
-	end
-
 	def new
 	end
 

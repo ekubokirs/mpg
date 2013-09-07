@@ -4,6 +4,17 @@ class CarsController < ApplicationController
 		@cars = Car.all
 	end
 
+	def stats
+		@cars = current_user.cars
+		@mpg = Array.new
+		@cars.find(params[:id]).tanks.each do |tank|
+			@mpg << {mpg: tank.mpg, date: tank.created_at}
+		end
+		respond_to do |format|
+			format.json{render :json => @mpg, :status => :ok}
+		end
+	end
+
 	def new
 		@car = Car.new
 	end
