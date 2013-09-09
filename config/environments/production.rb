@@ -38,6 +38,7 @@ Mpg::Application.configure do
     :password => "iriD38Lx1JGraw-cS_0ZIw"
   }
 
+  config.action_mailer.default_url_options = { :host => 'trackyogas.herokuapp.com'}
   # Generate digests for assets URLs.
   config.assets.digest = true
 
