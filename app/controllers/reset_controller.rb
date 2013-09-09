@@ -1,4 +1,4 @@
-class ResetController
+class ResetController < ApplicationController
 	before_action :get_user
 	after_action	:clear_expired_codes
 
