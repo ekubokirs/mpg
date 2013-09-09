@@ -29,6 +29,15 @@ Mpg::Application.configure do
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings = { 
+    :address => "smtp.mandrillapp.com", 
+    :port => 587,
+    :user_name => "ekubokirs@gmail.com",
+    :password => "iriD38Lx1JGraw-cS_0ZIw"
+  }
+
   # Generate digests for assets URLs.
   config.assets.digest = true
 
