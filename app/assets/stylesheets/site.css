@@ -1,6 +1,12 @@
 .mp_back{
 	padding: 2%;
 	margin: 5%;
+	background-color: #fff;
+	border: 1px solid #4d4219;
+}
+.mp_title{
+	color: #225a22;
+	text-align: center;
 }
 .ma_signin{
 	display: none
@@ -20,4 +26,19 @@
 }
 .mp_alert{
 	margin-right: 25%;
+}
+.mp_intro{
+	text-align: center;
+}
+.mp_greet{
+	margin: 5%;
+}
+.mp_top{
+	margin: 1%;
+	border: 1px solid #4d4219;
+	padding-top: 1%;
+}
+.mp_bot{
+	margin: 1%;
+	border: 1px solid #4d4219;
 }

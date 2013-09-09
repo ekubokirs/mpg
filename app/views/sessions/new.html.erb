@@ -1,40 +1,43 @@
 <div class="mp_back">
- <div class="mp_alert"><%= flash.alert %></div>
- <div class="row">
- 	<div class="small-12 columns">
- 		<%= form_tag login_path do %>
-			<div class="ma_signin hide-text">
-				To sign up, please enter your email and a new user email will be sent to you.
-			</div>
-			<div class="ma_reset">
-				To reset your password, please enter your email and leave the password field blank.  A reset email will be sent to you.
-			</div>
-			<%= label_tag :email, "E-mail", :class => "ma_label" %>
-			<%= text_field_tag :email %>
-			<div class="row">
-				<div class="small-6 columns">
-					<%= label_tag :password, "Password", :id => "passwordLabel", :class => "ma_label" %>
-					<%= password_field_tag :password, nil, :id => "inputPassword" %>
+	<div clas="row"><h1 class="mp_title">Track Yo' Gas</h1></div>
+	<div class="mp_alert"><%= flash.alert %></div>
+	<div class="row mp_top">
+		<div class="small-12 columns">
+ 			<%= form_tag login_path do %>
+				<div class="ma_signin hide-text">
+					To sign up, please enter your email and a new user email will be sent to you.
 				</div>
-				<div class="small-6 columns mp_pass">
-					<button id="toggle-password-field" id="showPassword" class ="tiny button alert">Show Password</button>
+				<div class="ma_reset">
+					To reset your password, please enter your email and leave the password field blank.  A reset email will be sent to you.
 				</div>
-			</div>
-			<div class="row">
-				<div class="small-6 columns">
-					<%= submit_tag "Submit", :class => "tiny button mp_submit" %>
+				<%= label_tag :email, "E-mail", :class => "ma_label" %>
+				<%= text_field_tag :email %>
+				<div class="row">
+					<div class="small-6 columns">
+						<%= label_tag :password, "Password", :id => "passwordLabel", :class => "ma_label" %>
+						<%= password_field_tag :password, nil, :id => "inputPassword" %>
+					</div>
+					<div class="small-6 columns mp_pass">
+						<button id="toggle-password-field" id="showPassword" class ="tiny button alert">Show Password</button>
+					</div>
 				</div>
-				<div class="small-6 columns">
-					<%= button_tag "Register", :id => "newReg", :class => "tiny button" %>
+				<div class="row">
+					<div class="small-6 columns">
+						<%= submit_tag "Submit", :class => "tiny button mp_submit" %>
+					</div>
+					<div class="small-6 columns">
+						<%= button_tag "Register", :id => "newReg", :class => "tiny button" %>
+					</div>
 				</div>
-			</div>
-		<% end %>
- 	</div>
- </div>
- <div class="row">
- 	<div class="small-12 columns mp_intro">Why Should You Track Yo' Gas?</div>
- </div>
- <div class="row">
- 	<p class="mp_greet">It's a great way to find out how the way you drive impacts your milage!  Plus, it can help better alert you when something is wrong.</p>
- </div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row mp_bot">
+		<div class="row">
+		 	<h3 class="small-12 columns mp_intro">Why Should You Track Yo' Gas?</h3>
+		</div>
+		<div class="row">
+		 	<p class="mp_greet">It's a great way to find out how the way you drive impacts your milage!  Plus, it can help better alert you when something is wrong.</p>
+		</div>
+	</div>
 </div>
