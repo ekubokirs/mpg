@@ -56,6 +56,7 @@
 					<td><%= t.current_miles %></td>
 					<td><%= t.mpg %></td>
 					<td><%= t.ppm %></td>
+					<td><%= link_to "Delete", tank_url(t.id), method: :delete %></td>
 				</tr>
 			<% end %>
 		</tbody>
