@@ -1,27 +1,25 @@
-<div class="row">	
-	<nav class="top-bar">
-		<ul class="title-area">
-			<li class="name">
-				<h1></h1>
-			</li>
-			<li class="toggle-topbar menu-icon">
-				<a href="#"><span>Menu</span></a>
-			</li>
+<nav class="top-bar">
+	<ul class="title-area">
+		<li class="name">
+			<h1></h1>
+		</li>
+		<li class="toggle-topbar menu-icon">
+			<a href="#"><span>Menu</span></a>
+		</li>
+	</ul>
+	<section class="top-bar-section">
+		<ul class="right">
+			<li class="divider"></li>
+			<li><%= link_to "Add New Tank", new_tank_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "Add New Car", new_car_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "See All Cars", cars_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "Log Out", logout_url %></li>				
 		</ul>
-		<section class="top-bar-section">
-			<ul class="right">
-				<li class="divider"></li>
-				<li><%= link_to "Add New Tank", new_tank_url %></li>
-				<li class="divider"></li>
-				<li><%= link_to "Add New Car", new_car_url %></li>
-				<li class="divider"></li>
-				<li><%= link_to "See All Cars", cars_url %></li>
-				<li class="divider"></li>
-				<li><%= link_to "Log Out", logout_url %></li>				
-			</ul>
-		</section>
-	</nav>
-</div>
+	</section>
+</nav>
 <div class="mp_back">
 	<div class="row mp_alert">
 		<%= flash.notice %>
@@ -103,4 +101,10 @@
 			}
 		</script>
 	</div>
+	<!-- <div class="row">
+		<%#= @tanks do |tank| %>
+			<%#= tank.created_at %>
+			<%#= tank.mpg %>
+		<%# end %>
+	</div> -->
 </div>

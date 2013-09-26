@@ -1,8 +1,9 @@
 .mp_back{
-	padding: 2%;
+	padding: 1%;
 	margin: 5%;
 	background-color: #fff;
 	border: 1px solid #4d4219;
+	border-radius: 3%;
 }
 .mp_title{
 	color: #225a22;
@@ -34,11 +35,11 @@
 	margin: 5%;
 }
 .mp_top{
-	margin: 1%;
 	border: 1px solid #4d4219;
 	padding-top: 1%;
 }
 .mp_bot{
-	margin: 1%;
+	margin-top: 1%;
+	margin-bottom: 1%;
 	border: 1px solid #4d4219;
 }

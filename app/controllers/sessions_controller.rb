@@ -2,6 +2,7 @@ class SessionsController <ApplicationController
 	before_action :is_authenticated, only: [ :index ]
 	def index
 		@cars = current_user.cars
+		# @tanks = @cars.find(params[:id]).tanks
 	end
 
 	def new
