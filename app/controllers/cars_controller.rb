@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
 	before_action :is_authenticated
 	def index
-		@cars = Car.all
+		@cars = current_user.cars
 	end
 
 	def stats
