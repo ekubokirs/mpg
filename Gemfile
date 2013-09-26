@@ -41,7 +41,9 @@ group :test, :development do
 	gem 'selenium-webdriver'
 end
 
-gem 'rails_12factor', group: :production
+group :production do
+	gem 'rails_12factor'
+end	
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
