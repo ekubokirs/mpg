@@ -6,7 +6,7 @@ class TanksController < ApplicationController
 
 	def new
 		@tanks  = Tank.new
-		@cars = Car.all
+		@cars = current_user.cars
 	end
 
 	def create
