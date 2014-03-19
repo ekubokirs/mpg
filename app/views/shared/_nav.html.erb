@@ -1,0 +1,22 @@
+<nav class="top-bar">
+	<ul class="title-area">
+		<li class="name">
+			<h1><%= link_to "Track Yo' Gas", root_url %></h1>
+		</li>
+		<li class="toggle-topbar menu-icon">
+			<a href="#"><span>Menu</span></a>
+		</li>
+	</ul>
+	<section class="top-bar-section">
+		<ul class="right">
+			<li class="divider"></li>
+			<li><%= link_to "Add New Tank", new_tank_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "Add New Car", new_car_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "See All Cars", cars_url %></li>
+			<li class="divider"></li>
+			<li><%= link_to "Log Out", logout_url %></li>				
+		</ul>
+	</section>
+</nav>
