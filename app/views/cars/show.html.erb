@@ -24,15 +24,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @tanks.each do |t| %>
+			<% @tanks.each do |tank| %>
 				<tr>
-					<td><%= t.created_at %></td>
-					<td><%= t.price %></td>
-					<td><%= t.amount %></td>
-					<td><%= t.current_miles %></td>
-					<td><%= t.mpg %></td>
-					<td><%= t.ppm %></td>
-					<td><%= link_to "Delete", tank_url(t.id), method: :delete %></td>
+					<td><%= tank.created_at %></td>
+					<td><%= tank.price %></td>
+					<td><%= tank.amount %></td>
+					<td><%= tank.current_miles %></td>
+					<td><%= tank.mpg %></td>
+					<td><%= tank.ppm %></td>
+					<td><%= link_to "Delete", tank_url(tank.id), method: :delete %></td>
 				</tr>
 			<% end %>
 		</tbody>

@@ -11,12 +11,12 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @cars.each do |c| %>
+			<% @cars.each do |car| %>
 				<tr>
-					<td><%= link_to c.name, car_url(c.id) %></td>
-					<td><%= c.year %>
-					<td><%= link_to "Edit", edit_car_url(c.id) %>
-					<td><%= link_to "Delete", c, method: :delete %>
+					<td><%= link_to car.name, car_url(car.id) %></td>
+					<td><%= car.year %>
+					<td><%= link_to "Edit", edit_car_url(car.id) %>
+					<td><%= link_to "Delete", car, method: :delete %>
 				</tr>
 			<% end %>
 		</tbody>
